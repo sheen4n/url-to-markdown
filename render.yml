@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: url-to-markdown
+    env: docker
+    buildCommand: docker build -t url-to-markdown .
+    startCommand: docker run -p $PORT:8080 url-to-markdown
+    envVars:
+      - key: PORT
+        value: 8080
+    healthCheckPath: /health
